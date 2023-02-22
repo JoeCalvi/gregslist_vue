@@ -41,6 +41,7 @@
 <script>
 import { ref } from 'vue';
 import Pop from '../utils/Pop.js';
+import { housesService } from '../services/HousesService.js'
 
 export default {
     setup(){

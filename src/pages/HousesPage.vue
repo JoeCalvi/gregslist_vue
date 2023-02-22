@@ -8,6 +8,17 @@
       </div>
     </div>
   </div>
+  <div class="row sticky-bottom" v-if="account.id">
+        <div class="col-12 text-end">
+          <button class="fs-5 btn btn-dark" data-bs-toggle="modal" data-bs-target="#test-modal">
+            Add Listing
+          </button>
+        </div>
+  </div>
+
+  <Modal id="test-modal" modal-title="Add a House">
+      <HouseForm />
+    </Modal>
 </template>
 
 
@@ -32,7 +43,8 @@ export default {
       getHouses()
     })
     return {
-      houses: computed(()=> AppState.houses)
+      houses: computed(()=> AppState.houses),
+      account: computed(()=> AppState.account)
     }
   }
 }

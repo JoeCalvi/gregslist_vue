@@ -1,6 +1,12 @@
 <template>
   <div class="housesPage">
-    <h1>This is the houses page</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" v-for="h in houses">
+          <HouseCard :house="h" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

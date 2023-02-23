@@ -18,7 +18,7 @@
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                         <div>
-                            <button @click="removeListing" v-if="account.id == house.creatorId" class="btn btn-danger">remove
+                            <button @click="removeHouse" v-if="account.id == house.seller.id" class="btn btn-danger">remove
                             listing</button>
                         </div>
                         <div>
@@ -37,6 +37,7 @@
 <script>
 import { onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { router } from '../router.js';
 import { AppState } from '../AppState.js'
 import { housesService } from '../services/HousesService.js'
 import Pop from '../utils/Pop.js'
@@ -64,7 +65,7 @@ export default {
             account: computed(() => AppState.account),
             house: computed(() => AppState.house),
 
-            async removeHouse(houseId) {
+            async removeHouse() {
                 try {
                     await housesService.removeHouse(houseId)
                     router.push({ name: 'Houses' })

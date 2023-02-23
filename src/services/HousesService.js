@@ -19,7 +19,15 @@ class HouseService {
     async getHouseById(houseId) {
         const res = await api.get('auth/api/houses/' + houseId)
         AppState.house = new House(res.data)
-        
+
+    }
+
+    async removeHouse(houseId) {
+        const res = await api.delete('auth/api/houses/' + houseId)
+        logger.log(res.data)
+        let i = AppState.houses.findIndex(h => h.id == houseId)
+        AppState.houses.splice(i, 1)
+
     }
 
     // async editHouse(houseId, houseData) {

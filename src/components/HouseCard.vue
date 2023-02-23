@@ -1,8 +1,8 @@
 <template>
         <div class="HouseCard card card-size my-2 rounded-top">
-            <!-- <router-link :to="{name: 'House', params: {houseId: house.id} }"> -->
+            <router-link :to="{ name: 'House', params: { houseId: house.id } }">
                 <img :src="house.imgUrl" alt="" class="house-img rounded-top">
-            <!-- </router-link> -->
+            </router-link>
             <div class="card-body">
                 <p><b>{{ house.bedrooms }}bed  {{ house.bathrooms }}bath | ${{ house.price }}</b></p>
             </div>
